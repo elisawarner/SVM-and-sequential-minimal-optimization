@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SVM's training algorithm
 
 **I will soon add Pegasos:)**
