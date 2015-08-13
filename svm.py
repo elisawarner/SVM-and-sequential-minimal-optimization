@@ -1,5 +1,8 @@
-'''Sequential Minimal Optimization(SMO) for training SVM
-Created on Jun 5 2015 @author: apex
+'''
+Sequential Minimal Optimization(SMO)
+Created on Jun 5, 2015 
+@author: apex
+
 '''
 
 import numpy as np
@@ -154,12 +157,12 @@ def main_routine(smo, max_iter=5):
 
 data_mat = []
 data_label = []
-fr = open('data.csv')
+fr = open('testSetRBF')
 for line in fr.readlines():
-    line_arr = line.strip().split(',')
+    line_arr = line.strip().split('\t')
     data_mat.append([float(element) for element in line_arr[:-1:]])
     data_label.append(float(line_arr[-1]))
-smo = SMOStruct(data_mat, data_label, 100, 0.001, ('lin', 1))
+smo = SMOStruct(data_mat, data_label, 100, 0.001, ('rbf', 0.1))
 main_routine(smo)
 error = 0.0
 for i in range(smo.m):
@@ -168,4 +171,3 @@ for i in range(smo.m):
 print 'error rate is {}'.format(error/smo.m)
 print 'b is {}'.format(smo.b)
 print 'w is {}'.format(smo.w)
-
