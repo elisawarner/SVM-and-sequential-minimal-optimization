@@ -129,7 +129,7 @@ def examine_example(i2, smo):
         for i in random_index:
             if i == i2:
                 continue
-            if take_step(i1, i2, smo):
+            if take_step(i, i2, smo):
                 return 1
     return 0
 
